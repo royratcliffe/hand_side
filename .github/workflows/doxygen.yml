@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: mattnotmitt/doxygen-action@1.9.5
+      - uses: mattnotmitt/doxygen-action@edge
         with:
           enable-latex: true
       - uses: peaceiris/actions-gh-pages@v3
