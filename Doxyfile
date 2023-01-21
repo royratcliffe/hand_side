@@ -1,0 +1,5 @@
+INPUT                  = inc src
+OUTPUT_DIRECTORY       = doc
+OPTIMIZE_OUTPUT_FOR_C  = YES
+EXTRACT_ALL            = YES
+SOURCE_BROWSER         = YES
