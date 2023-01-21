@@ -8,8 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: mattnotmitt/doxygen-action@edge
-        with:
-          enable-latex: true
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
