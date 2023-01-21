@@ -8,3 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: mattnotmitt/doxygen-action@edge
+      - uses: peaceiris/actions-gh-pages@v3
