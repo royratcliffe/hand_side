@@ -9,7 +9,6 @@ jobs:
       - uses: actions/checkout@v3
       - uses: mattnotmitt/doxygen-action@edge
         with:
-          additional-packages: font-fira-code
           enable-latex: true
       - uses: peaceiris/actions-gh-pages@v3
         with:
