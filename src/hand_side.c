@@ -27,6 +27,10 @@
 #include <malloc.h>
 #include <string.h>
 
+#if __USE_POSIX
+#define stricmp(lhs, rhs) strcasecmp(lhs, rhs)
+#endif
+
 struct hand_side *push_hand_side(struct hand_side **top, void *left,
                                  void *right) {
   struct hand_side *push = malloc(sizeof(struct hand_side));
