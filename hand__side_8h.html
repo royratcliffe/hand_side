@@ -93,6 +93,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a63aed5ce0f44872c6aca400b341f2604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new left and right.  <br /></td></tr>
 <tr class="separator:a63aed5ce0f44872c6aca400b341f2604"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74d20b82966d8f93c58601bb4c3c8129"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hand__side_8h.html#a74d20b82966d8f93c58601bb4c3c8129">free_hand_side</a> (struct <a class="el" href="structhand__side.html">hand_side</a> **top)</td></tr>
+<tr class="memdesc:a74d20b82966d8f93c58601bb4c3c8129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees left-right chain.  <br /></td></tr>
 <tr class="separator:a74d20b82966d8f93c58601bb4c3c8129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a219e1214cce94e8a98ed370928eed786"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hand__side_8h.html#a219e1214cce94e8a98ed370928eed786">for_left_and_right_hand_side</a> (struct <a class="el" href="structhand__side.html">hand_side</a> **top, void *(*and)(void *left, void *right, void *arg), void *arg)</td></tr>
 <tr class="separator:a219e1214cce94e8a98ed370928eed786"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +156,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Frees left-right chain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">top</td><td>Pointer to top of chain</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Releases all the pairs and returns the chain to an empty condition. </p>
 
 <p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00045">45</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
@@ -231,7 +241,8 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>The push operation both pushes and creates if necessary. The top address is a null pointer initially and this qualifies as a valid but empty hand-side chain. Pushing the first left-right pair adds to the chain using dynamically-allocated heap memory. </p>
+<p>The push operation both pushes and creates if necessary. The top address is a null pointer initially and this qualifies as a valid but empty hand-side chain. Pushing the first left-right pair adds to the chain using dynamically-allocated heap memory.</p>
+<p>Pushing fails if memory allocation fails. In such cases, the return value is <code>NULL</code> and the hand-side chain remains unaltered. Success returns the new top. </p>
 
 <p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00034">34</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
