@@ -8,6 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run:
-          name: Configure
-          command: python waf configure
+      - name: Configure
+        run: python waf configure
