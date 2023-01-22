@@ -8,5 +8,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Configure
-        run: python waf configure
+      - name: Configure and BUild
+        run: python waf configure build
