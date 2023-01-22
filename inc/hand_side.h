@@ -39,10 +39,20 @@ struct hand_side {
  * null pointer initially and this qualifies as a valid but empty hand-side
  * chain. Pushing the first left-right pair adds to the chain using
  * dynamically-allocated heap memory.
+ *
+ * Pushing fails if memory allocation fails. In such cases, the return value is
+ * `NULL` and the hand-side chain remains unaltered. Success returns the new
+ * top.
  */
 struct hand_side *push_hand_side(struct hand_side **top, void *left,
                                  void *right);
 
+/*!
+ * \brief Frees left-right chain
+ * \param top Pointer to top of chain
+ *
+ * Releases all the pairs and returns the chain to an empty condition.
+ */
 void free_hand_side(struct hand_side **top);
 
 void *for_left_and_right_hand_side(struct hand_side **top,
