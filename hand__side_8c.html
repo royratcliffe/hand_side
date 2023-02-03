@@ -89,6 +89,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a63aed5ce0f44872c6aca400b341f2604"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structhand__side.html">hand_side</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hand__side_8c.html#a63aed5ce0f44872c6aca400b341f2604">push_hand_side</a> (struct <a class="el" href="structhand__side.html">hand_side</a> **top, void *left, void *right)</td></tr>
 <tr class="memdesc:a63aed5ce0f44872c6aca400b341f2604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new left and right.  <br /></td></tr>
 <tr class="separator:a63aed5ce0f44872c6aca400b341f2604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c8997eb3579bcfd76edf7ac48a21585"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hand__side_8c.html#a5c8997eb3579bcfd76edf7ac48a21585">pop_left_hand_side</a> (struct <a class="el" href="structhand__side.html">hand_side</a> **top, void *left)</td></tr>
+<tr class="memdesc:a5c8997eb3579bcfd76edf7ac48a21585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops left if found.  <br /></td></tr>
+<tr class="separator:a5c8997eb3579bcfd76edf7ac48a21585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74d20b82966d8f93c58601bb4c3c8129"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hand__side_8c.html#a74d20b82966d8f93c58601bb4c3c8129">free_hand_side</a> (struct <a class="el" href="structhand__side.html">hand_side</a> **top)</td></tr>
 <tr class="memdesc:a74d20b82966d8f93c58601bb4c3c8129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees left-right chain.  <br /></td></tr>
 <tr class="separator:a74d20b82966d8f93c58601bb4c3c8129"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,7 +154,7 @@ Functions</h2></td></tr>
 <p>This generalised iteration function walks the left-right pairs one by one calling a function with three arguments: the left, the right and some context-related argument. The latter proves useful for older or deeply embedded compilers that cannot or should not capture its context using nested functions.</p>
 <p>The iteration stops when the function answers a non-null result. The iteration itself returns null when no iterated function call gives a non-null result. </p>
 
-<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00056">56</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00074">74</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
 </div>
 </div>
@@ -180,7 +183,7 @@ Functions</h2></td></tr>
 </dl>
 <p>Releases all the pairs and returns the chain to an empty condition. </p>
 
-<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00045">45</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00063">63</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
 </div>
 </div>
@@ -220,7 +223,48 @@ Functions</h2></td></tr>
 </dl>
 <p>Lookups typically work from left to right, but not always. When pairing strings (that is, pointers to null-terminated constant characters) with arbitrary pointers, for example, a reverse translation could prove handly by answering the string for some given pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00088">88</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00106">106</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+
+</div>
+</div>
+<a id="a5c8997eb3579bcfd76edf7ac48a21585" name="a5c8997eb3579bcfd76edf7ac48a21585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c8997eb3579bcfd76edf7ac48a21585">&#9670;&#160;</a></span>pop_left_hand_side()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * pop_left_hand_side </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="structhand__side.html">hand_side</a> **&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>left</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pops left if found. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">top</td><td>Top of chain </td></tr>
+    <tr><td class="paramname">left</td><td>Lefthand side to match </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Right hand side if match else <code>NULL</code></dd></dl>
+<p>Removes left and right, matching on left. Removes only one, stopping at the first match. </p>
+
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00045">45</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
 </div>
 </div>
@@ -310,7 +354,7 @@ Functions</h2></td></tr>
 <p>Walks the chain looking for a matching left-hand side. Matching refers to comparison by reference only. It compares the pointers. Answers the right-hand side for the first match.</p>
 <p>Note that the search always stops at the first match, though technically there could be more than one match if the chain receives more than one push with the same left-hand side. </p>
 
-<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00071">71</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00089">89</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
 </div>
 </div>
@@ -350,7 +394,7 @@ Functions</h2></td></tr>
 </dl>
 <p>Right for left also supports insensitive string comparison where matching utilises <code>stricmp</code> for comparing the left-hand side with the given string. This naturally assumes that the left-hand sides represent pointers to null-terminated strings. The implementation throws away the <code>const</code> correctness by casting to the very generalised non-constant void pointer type. </p>
 
-<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00079">79</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hand__side_8c_source.html#l00097">97</a> of file <a class="el" href="hand__side_8c_source.html">hand_side.c</a>.</p>
 
 </div>
 </div>
