@@ -53,7 +53,7 @@ void *pop_left_hand_side(struct hand_side **top, void *left) {
     /*
      * Iterations beyond the first also move the top to the previous pop's next
      * pointer. A subsequent match will see a top at the previous pop's link
-     * pointer, actually a sub-member of the pop's left_hand structure.
+     * pointer, actually a sub-member of the pop's hand_side structure.
      */
     top = &pop->pop;
   }
