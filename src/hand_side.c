@@ -42,6 +42,24 @@ struct hand_side *push_hand_side(struct hand_side **top, void *left,
   return push;
 }
 
+void *pop_left_hand_side(struct hand_side **top, void *left) {
+  for (struct hand_side *pop = *top; pop; pop = pop->pop) {
+    if (pop->left == left) {
+      void *result = pop->right;
+      *top = pop->pop;
+      free(pop);
+      return result;
+    }
+    /*
+     * Iterations beyond the first also move the top to the previous pop's next
+     * pointer. A subsequent match will see a top at the previous pop's link
+     * pointer, actually a sub-member of the pop's left_hand structure.
+     */
+    top = &pop->pop;
+  }
+  return NULL;
+}
+
 void free_hand_side(struct hand_side **top) {
   struct hand_side *pop = *top;
   if (pop == NULL) return;

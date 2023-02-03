@@ -49,6 +49,17 @@ struct hand_side *push_hand_side(struct hand_side **top, void *left,
                                  void *right);
 
 /*!
+ * \brief Pops left if found
+ * \param top Top of chain
+ * \param left Lefthand side to match
+ * \return Right hand side if match else `NULL`
+ *
+ * Removes left and right, matching on left. Removes only one, stopping at the
+ * first match.
+ */
+void *pop_left_hand_side(struct hand_side **top, void *left);
+
+/*!
  * \brief Frees left-right chain
  * \param top Pointer to top of chain
  *
