@@ -91,6 +91,18 @@ void *for_left_and_right_hand_side(struct hand_side **top,
                                    void *arg);
 
 /*!
+ * \brief Iterates left and right with variadic arguments.
+ *
+ * Restarts the variadic argument list at every iteration. Hence the `and`
+ * function sees the same variable argument list albeit with differing left and
+ * right pointers.
+ */
+void *vfor_left_and_right_hand_side(struct hand_side **top,
+                                    void *(*and)(void *left, void *right,
+                                                 va_list args),
+                                    ...);
+
+/*!
  * \brief Right for lefthand side
  * \param top Pointer to top of chain
  * \param left Pointer to lefthand side

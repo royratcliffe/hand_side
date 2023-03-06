@@ -85,6 +85,21 @@ void *for_left_and_right_hand_side(struct hand_side **top,
   return NULL;
 }
 
+void *vfor_left_and_right_hand_side(struct hand_side **top,
+                                    void *(*and)(void *left, void *right,
+                                                 va_list args),
+                                    ...) {
+  for (struct hand_side *pop = *top; pop; pop = pop->pop) {
+    va_list args;
+    va_start(args, and);
+    void *result = (*and)(pop->left, pop->right, args);
+    va_end(args);
+    if (result)
+      return result;
+  }
+  return NULL;
+}
+
 static void *left_eq(void *left, void *right, void *arg) {
   return left == arg ? right : NULL;
 }
