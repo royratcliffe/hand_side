@@ -34,7 +34,8 @@
 struct hand_side *push_hand_side(struct hand_side **top, void *left,
                                  void *right) {
   struct hand_side *push = malloc(sizeof(struct hand_side));
-  if (push == NULL) return NULL;
+  if (push == NULL)
+    return NULL;
   push->pop = *top;
   *top = push;
   push->left = left;
@@ -62,7 +63,8 @@ void *pop_left_hand_side(struct hand_side **top, void *left) {
 
 void free_hand_side(struct hand_side **top) {
   struct hand_side *pop = *top;
-  if (pop == NULL) return;
+  if (pop == NULL)
+    return;
   *top = NULL;
   while (pop) {
     void *pv = pop;
@@ -77,7 +79,8 @@ void *for_left_and_right_hand_side(struct hand_side **top,
                                    void *arg) {
   for (struct hand_side *pop = *top; pop; pop = pop->pop) {
     void *result = (*and)(pop->left, pop->right, arg);
-    if (result) return result;
+    if (result)
+      return result;
   }
   return NULL;
 }
