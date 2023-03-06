@@ -24,6 +24,8 @@
 
 #pragma once
 
+#include <stdarg.h>
+
 struct hand_side {
   void *left, *right;
   struct hand_side *pop;
