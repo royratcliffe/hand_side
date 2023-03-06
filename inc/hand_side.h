@@ -34,7 +34,7 @@ struct hand_side {
  * \param top Pointer to top
  * \param left Pointer to lefthand side
  * \param right Pointer to righthand side
- * \return New left-right pair pushed to top or `NULL` if out of memory
+ * \retval New left-right pair pushed to top or `NULL` if out of memory
  *
  * The push operation both pushes and creates if necessary. The top address is a
  * null pointer initially and this qualifies as a valid but empty hand-side
@@ -52,7 +52,7 @@ struct hand_side *push_hand_side(struct hand_side **top, void *left,
  * \brief Pops left if found
  * \param top Top of chain
  * \param left Lefthand side to match
- * \return Right hand side if match else `NULL`
+ * \retval Right hand side if match else `NULL`
  *
  * Removes left and right, matching on left. Removes only one, stopping at the
  * first match.
@@ -73,7 +73,7 @@ void free_hand_side(struct hand_side **top);
  * \param and Pointer to function that visits left and right until it returns a
  * non-null result
  * \param arg Extra function argument
- * \return Result of calling the function if non-null, else end of chain
+ * \retval Result of calling the function if non-null, else end of chain
  *
  * This generalised iteration function walks the left-right pairs one by one
  * calling a function with three arguments: the left, the right and some
